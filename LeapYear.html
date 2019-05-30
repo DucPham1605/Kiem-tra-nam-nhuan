@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leap Year</title>
+</head>
+<body>
+<h1>Ứng dụng kiểm tra năm nhuận</h1>
+<br>
+<h3>Mời bạn nhập năm để kiểm tra</h3>
+<input type="text" id="textbox" value="">
+<br>
+<input type="button" id="test" value="Kiểm tra" onclick="kiemtra()">
+<br>
+
+<script>
+    function kiemtra() {
+
+        var year = parseInt(document.getElementById("textbox").value);
+        var leap = false;
+
+        var isDivisibleby4 = year % 4 == 0;
+
+        if (isDivisibleby4) {
+            var isDivisibleby100 = year % 100 == 0;
+            if (isDivisibleby100) {
+                var isDivisibleby400 = year % 400 == 0;
+                if (isDivisibleby400) {
+                    leap = true;
+                }
+            } else {
+                leap = true;
+            }
+        }
+        if (leap) {
+            //document.getElementById("result").innerHTML.value = year + 'là năm nhuận.';
+            alert(year + ' ' + 'là năm nhuận');
+        } else {
+            alert(year + ' ' + 'không phải là năm nhuận');
+        }
+    }
+</script>
+
+</body>
+</html>
